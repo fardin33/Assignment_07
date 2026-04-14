@@ -12,13 +12,13 @@ const Footer = () => {
         </h2>
 
         {/* description */}
-        <p className="max-w-xl text-[12px] md:text-[14.5px] lg:text-[16px] mb-8 text-gray-400">
+        <p className="max-w-xl text-[12px] md:text-[14.5px] lg:text-[16px] mb-5 text-gray-400">
           Your personal shelf of meaningful connections. Browse, tend, and
           nurture the relationships that matter most.
         </p>
 
         {/* Social Links Section */}
-        <div className="mb-12">
+        <div className="mb-10">
           <h3 className="text-white font-medium mb-4">Social Links</h3>
           <div className="flex gap-4 justify-center">
             {/* Instagram */}
