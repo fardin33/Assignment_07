@@ -9,7 +9,7 @@ const StatsSection = () => {
   ];
 
   return (
-    <section className="w-[80%] mx-auto pt-6 md:pt-10 lg:pt-12 pb-10">
+    <section className="w-[85%] mx-auto pt-6 md:pt-10 lg:pt-12 pb-10">
       {/* Container with responsive grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
         {stats.map((stat) => (
@@ -31,7 +31,7 @@ const StatsSection = () => {
       </div>
 
       {/* Bottom subtle divider */}
-      <div className="mt-14 border-b-2 border-gray-200 w-full"></div>
+      <div className="mt-14 border-b border-gray-200 w-full"></div>
     </section>
   );
 };

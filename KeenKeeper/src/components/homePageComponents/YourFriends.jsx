@@ -1,7 +1,7 @@
 import React from "react";
 
 const YourFriends = () => {
-  // Dummy data based : 
+  // Dummy data based :
   const friends = [
     {
       id: 1,
@@ -124,7 +124,7 @@ const YourFriends = () => {
   };
 
   return (
-    <section className="w-[90%] md:w-[85%] lg:w-[80%] mx-auto py-10">
+    <section className="w-[85%] mx-auto py-10">
       <h2 className="geist text-2xl md:text-2xl lg:text-3xl font-bold text-[#1F2937] mb-8 text-left">
         Your Friends
       </h2>
