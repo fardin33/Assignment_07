@@ -5,9 +5,9 @@ import { RouterProvider } from "react-router/dom";
 import { createBrowserRouter } from "react-router";
 import RootLayout from "./layout/RootLayout";
 import HomePage from "./pages/homepage/HomePage";
-import TimeLine from "./pages/timeLine/TimeLine";
 import Stats from "./pages/stats/Stats";
 import ErrorPage from "./pages/errorPage/ErrorPage";
+import TimeLine from "./pages/timeline/TimeLine";
 
 const router = createBrowserRouter([
   {

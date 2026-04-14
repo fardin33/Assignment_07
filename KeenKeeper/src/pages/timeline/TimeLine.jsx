@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   HiChevronDown,
   HiOutlineUserGroup,
@@ -95,10 +94,10 @@ const TimeLine = () => {
       <div className="pt-8 md:pt-12 lg:pt-16 pb-10">
         {/* Title */}
         <h1 className="text-3xl md:text-4xl font-bold mb-8 text-[#111827] tracking-tight">
-          T
+          TimeLine
         </h1>
 
-        {/* Standard Dropdown with React Icon */}
+        {/* Dropdown Part */}
         <div className="relative inline-block w-full max-w-60 mb-10">
           <select className="appearance-none w-full bg-white border border-gray-200 text-gray-700 py-2.5 px-4 pr-10 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-200 transition-all cursor-pointer text-sm font-medium">
             <option value="">Filter timeline</option>
@@ -107,7 +106,7 @@ const TimeLine = () => {
             <option value="videos">Videos</option>
             <option value="texts">Texts</option>
           </select>
-          {/* Custom Chevron Icon from React Icons */}
+
           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
             <HiChevronDown size={18} />
           </div>
@@ -120,7 +119,6 @@ const TimeLine = () => {
               key={index}
               className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-center gap-5 hover:shadow-md transition-shadow duration-300"
             >
-              {/* Icon Container with gray-100 */}
               <div className="w-12 h-12 md:w-14 md:h-14 bg-gray-200 rounded-xl flex items-center justify-center shrink-0">
                 {event.icon}
               </div>
