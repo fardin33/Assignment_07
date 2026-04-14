@@ -17,12 +17,12 @@ const StatsSection = () => {
             key={stat.id}
             className="bg-white py-8 px-4 rounded-xl border border-gray-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-md"
           >
-            {/* Value/Number */}
+            {/* Value */}
             <h2 className="geist text-2xl md:text-3xl lg:text-4xl font-bold text-[#224236] leading-none mb-3">
               {stat.value}
             </h2>
 
-            {/* Label */}
+            {/* Label Text */}
             <p className="mt-1 text-[#64748B] text-[14.5px] md:text-[15px] lg:text-[16px] font-medium">
               {stat.label}
             </p>
@@ -30,7 +30,7 @@ const StatsSection = () => {
         ))}
       </div>
 
-      {/* Bottom subtle divider from your image */}
+      {/* Bottom subtle divider */}
       <div className="mt-14 border-b-2 border-gray-200 w-full"></div>
     </section>
   );
