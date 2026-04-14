@@ -1,25 +1,28 @@
 import React from "react";
+import { Link, useNavigate } from "react-router";
 
 const FriendsCard = ({ friend }) => {
+  const navigate = useNavigate();
+
   const getStatusStyles = (status) => {
-    switch (status) {
-      case "Overdue":
-        return "bg-[#EF4444] text-white";
-      case "Almost Due":
-        return "bg-[#F59E0B] text-white";
-      case "On-Track":
-        return "bg-[#224236] text-white";
-      default:
-        return "bg-gray-100 text-gray-600";
-    }
+    return status === "Overdue"
+      ? "bg-[#D14F4F] text-white"
+      : status === "Almost Due"
+        ? "bg-[#ddae47] text-white"
+        : status === "On Track"
+          ? "bg-[#186952] text-white"
+          : "bg-gray-100 text-gray-600";
   };
 
   return (
-    <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow duration-300">
+    <div
+      onClick={() => navigate(`/friend/${friend.id}`)}
+      className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow duration-300 cursor-pointer"
+    >
       {/* Profile Image */}
       <div className="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-gray-50">
         <img
-          src={friend.image}
+          src={friend.picture}
           alt={friend.name}
           className="w-full h-full object-cover"
         />
@@ -38,7 +41,7 @@ const FriendsCard = ({ friend }) => {
         {friend.tags.map((tag, i) => (
           <span
             key={i}
-            className="bg-[#D1FAE5] text-[#065F46] text-[10.5px] md:text-[11.5px] lg:text-[12px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider"
+            className="bg-[#D1FAE5] text-[#18644f] text-[10.5px] md:text-[11.5px] lg:text-[12px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider"
           >
             {tag}
           </span>

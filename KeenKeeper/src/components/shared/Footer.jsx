@@ -1,15 +1,18 @@
 import React from "react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
+import FooterLogo from "../../assets/images/logo-xl.png";
 
 const Footer = () => {
   return (
     <footer className="bg-[#1a3a32] text-gray-300 py-10 px-6 mt-25 md:mt-30 lg:mt-40">
-      <div className="max-w-6xl mx-auto flex flex-col items-center text-center">
+      <div className="max-w-6xl mx-auto flex flex-col items-center text-center mt-3">
         {/* Logo Name */}
-        <h2 className="text-white text-[34px] md:text-[40px] lg:text-[46px] font-bold mb-4 tracking-tight">
-          KeenKeeper
-        </h2>
+        <img
+          src={FooterLogo}
+          alt="KeenKeeper"
+          className="h-7 md:h-8 lg:h-10 w-auto object-contain mb-5"
+        />
 
         {/* description */}
         <p className="max-w-xl text-[12px] md:text-[14.5px] lg:text-[16px] mb-5 text-gray-400">

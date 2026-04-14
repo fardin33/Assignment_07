@@ -2,6 +2,7 @@ import React from "react";
 import { RiHome3Line, RiTimeLine } from "react-icons/ri";
 import { TfiStatsUp } from "react-icons/tfi";
 import { NavLink } from "react-router-dom";
+import NavLogo from "../../assets/images/logo.png";
 
 const Navbar = () => {
   const links = [
@@ -76,12 +77,11 @@ const Navbar = () => {
           </div>
 
           <NavLink to="/" className="flex items-center cursor-pointer">
-            <span className="geist text-[24.5px] md:text-[26.5px] lg:text-[30px] font-bold text-[#1F2937]">
-              Keen
-            </span>
-            <span className="geist text-[24.5px] md:text-[26.5px] lg:text-[30px] font-bold text-[#244D3F]">
-              Keeper
-            </span>
+            <img
+              src={NavLogo}
+              alt="KeenKeeper Logo"
+              className="h-7 md:h-8 lg:h-9 w-auto object-contain"
+            />
           </NavLink>
         </div>
 
