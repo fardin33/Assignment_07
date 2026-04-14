@@ -76,10 +76,10 @@ const Navbar = () => {
           </div>
 
           <NavLink to="/" className="flex items-center cursor-pointer">
-            <span className="geist text-[23.5px] md:text-[25.5px] lg:text-[30px] font-bold text-[#1F2937]">
+            <span className="geist text-[24.5px] md:text-[26.5px] lg:text-[30px] font-bold text-[#1F2937]">
               Keen
             </span>
-            <span className="geist text-[23.5px] md:text-[25.5px] lg:text-[30px] font-bold text-[#244D3F]">
+            <span className="geist text-[24.5px] md:text-[26.5px] lg:text-[30px] font-bold text-[#244D3F]">
               Keeper
             </span>
           </NavLink>
