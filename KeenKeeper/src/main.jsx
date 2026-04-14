@@ -23,6 +23,7 @@ const router = createBrowserRouter([
       {
         path: "/friend/:id",
         element: <FriendDetails />,
+        loader: () => fetch("/data.json"),
       },
       {
         path: "/timeline",

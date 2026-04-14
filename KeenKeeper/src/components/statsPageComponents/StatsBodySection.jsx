@@ -10,7 +10,7 @@ const StatsBodySection = () => {
   ];
 
   return (
-    <section className="w-11/12 mx-auto pt-12 md:pt-16 lg:pt-20 pb-10 font-sans">
+    <section className="w-[85%] md:w-[85%] lg:w-[85%] mx-auto pt-12 md:pt-16 lg:pt-20 pb-10 font-sans">
       {/* Page Title */}
       <h1 className="text-xl md:text-2xl lg:text-[33px] font-bold text-[#111827] mb-8">
         Friendship Analytics
