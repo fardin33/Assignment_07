@@ -8,6 +8,8 @@ import {
   FaRegCommentDots,
   FaVideo,
 } from "react-icons/fa";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const FriendDetailsSection = ({ friends }) => {
   const { id } = useParams();
@@ -21,6 +23,19 @@ const FriendDetailsSection = ({ friends }) => {
       </div>
     );
   }
+
+  // 2. Toast Handler Function :
+  const handleCheckIn = (type) => {
+    toast.success(`${type} with ${friend.name}`, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "light",
+    });
+  };
 
   const getStatusStyles = (status) => {
     switch (status.toLowerCase()) {
@@ -134,30 +149,43 @@ const FriendDetailsSection = ({ friends }) => {
                 <p className="text-slate-600 text-sm md:text-xs lg:text-base">
                   Connect every{" "}
                   <span className="font-bold text-slate-900">
-                    {friend.days_since_contact || "N/A"} days
+                    {friend.goal || "N/A"} days
                   </span>
                 </p>
               </div>
 
+              <ToastContainer />
               {/* Check-In Section */}
               <div className="bg-white p-4 md:p-4 lg:p-6 rounded-xl border border-slate-100 shadow-sm">
                 <h3 className="text-md md:text-sm lg:text-lg font-bold text-emerald-800 mb-4">
                   Quick Check-In
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <button className="flex flex-col items-center py-4 md:py-3 lg:py-6 bg-slate-50 border border-slate-100 rounded-xl hover:bg-emerald-50 transition-all group">
-                    <FaPhoneAlt className="text-slate-600 group-hover:text-emerald-600 md:size-4 lg:size-5" />
-                    <span className="text-xs md:text-[11px] lg:text-sm font-semibold mt-2">
-                      Call
-                    </span>
-                  </button>
-                  <button className="flex flex-col items-center py-4 md:py-3 lg:py-6 bg-slate-50 border border-slate-100 rounded-xl hover:bg-emerald-50 transition-all group">
+                  {/* 4. Click handlers added below */}
+                  <button
+                    onClick={() => handleCheckIn("Text")}
+                    className="flex flex-col items-center py-4 md:py-3 lg:py-6 bg-slate-50 border border-slate-100 rounded-xl hover:bg-emerald-50 transition-all group"
+                  >
                     <FaRegCommentDots className="text-slate-600 group-hover:text-emerald-600 md:size-5 lg:size-6" />
                     <span className="text-xs md:text-[11px] lg:text-sm font-semibold mt-2">
                       Text
                     </span>
                   </button>
-                  <button className="flex flex-col items-center py-4 md:py-3 lg:py-6 bg-slate-50 border border-slate-100 rounded-xl hover:bg-emerald-50 transition-all group">
+
+                  <button
+                    onClick={() => handleCheckIn("Call")}
+                    className="flex flex-col items-center py-4 md:py-3 lg:py-6 bg-slate-50 border border-slate-100 rounded-xl hover:bg-emerald-50 transition-all group"
+                  >
+                    <FaPhoneAlt className="text-slate-600 group-hover:text-emerald-600 md:size-4 lg:size-5" />
+                    <span className="text-xs md:text-[11px] lg:text-sm font-semibold mt-2">
+                      Call
+                    </span>
+                  </button>
+
+                  <button
+                    onClick={() => handleCheckIn("Video Call")}
+                    className="flex flex-col items-center py-4 md:py-3 lg:py-6 bg-slate-50 border border-slate-100 rounded-xl hover:bg-emerald-50 transition-all group"
+                  >
                     <FaVideo className="text-slate-600 group-hover:text-emerald-600 md:size-4 lg:size-5" />
                     <span className="text-xs md:text-[11px] lg:text-sm font-semibold mt-2">
                       Video
