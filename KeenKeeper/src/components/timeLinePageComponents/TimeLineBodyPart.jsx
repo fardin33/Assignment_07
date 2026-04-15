@@ -1,109 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import TimeLineCard from "../Ui/TimeLineCard";
 import { HiOutlineUserGroup, HiOutlineChatAlt2 } from "react-icons/hi";
 import { FaChevronDown } from "react-icons/fa6";
 import { LuFilter } from "react-icons/lu";
-
-const events = [
-  {
-    icon: <HiOutlineUserGroup className="text-xl md:text-2xl text-gray-600" />,
-    type: "Meetup",
-    with: "Tom Baker",
-    date: "March 29, 2026",
-  },
-  {
-    icon: <HiOutlineChatAlt2 className="text-xl md:text-2xl text-gray-600" />,
-    type: "Text",
-    with: "Sarah Chen",
-    date: "March 28, 2026",
-  },
-  {
-    icon: <HiOutlineUserGroup className="text-xl md:text-2xl text-gray-600" />,
-    type: "Meetup",
-    with: "Tom Baker",
-    date: "March 29, 2026",
-  },
-  {
-    icon: <HiOutlineChatAlt2 className="text-xl md:text-2xl text-gray-600" />,
-    type: "Text",
-    with: "Sarah Chen",
-    date: "March 28, 2026",
-  },
-  {
-    icon: <HiOutlineUserGroup className="text-xl md:text-2xl text-gray-600" />,
-    type: "Meetup",
-    with: "Tom Baker",
-    date: "March 29, 2026",
-  },
-  {
-    icon: <HiOutlineChatAlt2 className="text-xl md:text-2xl text-gray-600" />,
-    type: "Text",
-    with: "Sarah Chen",
-    date: "March 28, 2026",
-  },
-  {
-    icon: <HiOutlineUserGroup className="text-xl md:text-2xl text-gray-600" />,
-    type: "Meetup",
-    with: "Tom Baker",
-    date: "March 29, 2026",
-  },
-  {
-    icon: <HiOutlineChatAlt2 className="text-xl md:text-2xl text-gray-600" />,
-    type: "Text",
-    with: "Sarah Chen",
-    date: "March 28, 2026",
-  },
-  {
-    icon: <HiOutlineUserGroup className="text-xl md:text-2xl text-gray-600" />,
-    type: "Meetup",
-    with: "Tom Baker",
-    date: "March 29, 2026",
-  },
-  {
-    icon: <HiOutlineChatAlt2 className="text-xl md:text-2xl text-gray-600" />,
-    type: "Text",
-    with: "Sarah Chen",
-    date: "March 28, 2026",
-  },
-  {
-    icon: <HiOutlineUserGroup className="text-xl md:text-2xl text-gray-600" />,
-    type: "Meetup",
-    with: "Tom Baker",
-    date: "March 29, 2026",
-  },
-  {
-    icon: <HiOutlineChatAlt2 className="text-xl md:text-2xl text-gray-600" />,
-    type: "Text",
-    with: "Sarah Chen",
-    date: "March 28, 2026",
-  },
-  {
-    icon: <HiOutlineUserGroup className="text-xl md:text-2xl text-gray-600" />,
-    type: "Meetup",
-    with: "Tom Baker",
-    date: "March 29, 2026",
-  },
-  {
-    icon: <HiOutlineChatAlt2 className="text-xl md:text-2xl text-gray-600" />,
-    type: "Text",
-    with: "Sarah Chen",
-    date: "March 28, 2026",
-  },
-  {
-    icon: <HiOutlineUserGroup className="text-xl md:text-2xl text-gray-600" />,
-    type: "Meetup",
-    with: "Tom Baker",
-    date: "March 29, 2026",
-  },
-  {
-    icon: <HiOutlineChatAlt2 className="text-xl md:text-2xl text-gray-600" />,
-    type: "Text",
-    with: "Sarah Chen",
-    date: "March 28, 2026",
-  },
-];
+import { TimeLineContext } from "../../context/TimeLineContext";
 
 const TimeLineBodyPart = () => {
+  const { events } = useContext(TimeLineContext);
+  console.log(events);
+
   return (
     <section className="w-[85%] mx-auto pt-3 md:pt-5 lg:pt-10 pb-10">
       <div className="pt-8 md:pt-12 lg:pt-16 pb-10">
@@ -188,10 +93,10 @@ const TimeLineBodyPart = () => {
         </div>
 
         {/* Timeline Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
-          {events.map((event, index) => (
-            <TimeLineCard key={index} event={event} />
-          ))}
+        <div className="grid grid-cols-1  gap-4 md:gap-6">
+          {events.map((event) => {
+            return <TimeLineCard key={event.id} event={event} />;
+          })}
         </div>
       </div>
     </section>

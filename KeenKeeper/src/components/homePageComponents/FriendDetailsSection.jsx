@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router";
 import {
   FaRegBell,
   FaArchive,
   FaTrashAlt,
-  FaPhoneAlt,
   FaRegCommentDots,
+  FaPhoneAlt,
   FaVideo,
 } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { TimeLineContext } from "../../context/TimeLineContext";
 
 const FriendDetailsSection = ({ friends }) => {
-  const { id } = useParams();
+  let { events, setEvents } = useContext(TimeLineContext);
 
+  const { id } = useParams();
   const friend = friends?.find((f) => f.id.toString() === id);
 
   if (!friend) {
@@ -35,8 +37,23 @@ const FriendDetailsSection = ({ friends }) => {
       draggable: true,
       theme: "light",
     });
-  };
 
+    // Mapping Contract Icon :
+    const iconMap = {
+      Text: <FaRegCommentDots className="text-emerald-600" />,
+      Call: <FaPhoneAlt className="text-emerald-600" />,
+      "Video Call": <FaVideo className="text-emerald-600" />,
+    };
+
+    const newEvent = {
+      ...friend,
+      contactType: type,
+      icon: iconMap[type],
+      timestamp: new Date().toLocaleDateString(),
+    };
+
+    setEvents([...events, newEvent]);
+  };
   const getStatusStyles = (status) => {
     switch (status.toLowerCase()) {
       case "overdue":
@@ -163,6 +180,9 @@ const FriendDetailsSection = ({ friends }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {/* 4. Click handlers added below */}
                   <button
+                    // onClick={() =>
+                    //   handleCheckIn("Text", setEvents([...events, friend]))
+                    // }
                     onClick={() => handleCheckIn("Text")}
                     className="flex flex-col items-center py-4 md:py-3 lg:py-6 bg-slate-50 border border-slate-100 rounded-xl hover:bg-emerald-50 transition-all group"
                   >
@@ -183,7 +203,7 @@ const FriendDetailsSection = ({ friends }) => {
                   </button>
 
                   <button
-                    onClick={() => handleCheckIn("Video Call")}
+                    onClick={() => handleCheckIn("Video")}
                     className="flex flex-col items-center py-4 md:py-3 lg:py-6 bg-slate-50 border border-slate-100 rounded-xl hover:bg-emerald-50 transition-all group"
                   >
                     <FaVideo className="text-slate-600 group-hover:text-emerald-600 md:size-4 lg:size-5" />

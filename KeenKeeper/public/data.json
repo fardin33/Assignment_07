@@ -35,7 +35,7 @@
     "goal": 45,
     "next_due_date": "2026-03-12"
   },
-  {
+  { 
     "id": 4,
     "name": "James Wright",
     "picture": "https://randomuser.me/api/portraits/men/4.jpg",
