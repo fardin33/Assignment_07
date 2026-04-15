@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router";
 const FriendsCard = ({ friend }) => {
   const navigate = useNavigate();
 
-  
   const getStatusStyles = (status) => {
     return status === "Overdue"
       ? "bg-[#D14F4F] text-white"

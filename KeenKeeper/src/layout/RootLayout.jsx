@@ -5,9 +5,11 @@ import Navbar from "../components/shared/Navbar";
 
 const RootLayout = () => {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen relative">
       <Navbar />
-      <Outlet />
+      <main className="grow">
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );

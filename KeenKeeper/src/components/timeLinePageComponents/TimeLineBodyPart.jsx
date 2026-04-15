@@ -93,7 +93,7 @@ const TimeLineBodyPart = () => {
         </div>
 
         {/* Timeline Cards Grid */}
-        <div className="grid grid-cols-1  gap-4 md:gap-6">
+        <div className="grid grid-cols-1 gap-4 md:gap-6">
           {events.map((event) => {
             return <TimeLineCard key={event.id} event={event} />;
           })}

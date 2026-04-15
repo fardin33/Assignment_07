@@ -42,7 +42,7 @@ const FriendDetailsSection = ({ friends }) => {
     const iconMap = {
       Text: <FaRegCommentDots className="text-emerald-600" />,
       Call: <FaPhoneAlt className="text-emerald-600" />,
-      "Video Call": <FaVideo className="text-emerald-600" />,
+      Video: <FaVideo className="text-emerald-600" />,
     };
 
     const newEvent = {
@@ -180,9 +180,6 @@ const FriendDetailsSection = ({ friends }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {/* 4. Click handlers added below */}
                   <button
-                    // onClick={() =>
-                    //   handleCheckIn("Text", setEvents([...events, friend]))
-                    // }
                     onClick={() => handleCheckIn("Text")}
                     className="flex flex-col items-center py-4 md:py-3 lg:py-6 bg-slate-50 border border-slate-100 rounded-xl hover:bg-emerald-50 transition-all group"
                   >
