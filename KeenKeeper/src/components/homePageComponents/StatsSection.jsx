@@ -1,45 +1,9 @@
-// import React from "react";
-// import { useLoaderData } from "react-router";
-
-// const StatsSection = () => {
-//   const stats = useLoaderData();
-
-//   return (
-//     <section className="w-[85%] mx-auto pt-6 md:pt-10 lg:pt-12 pb-10">
-//       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-//         {stats.map((stat) => (
-//           <div
-//             key={stat.id}
-//             className="bg-white py-8 px-4 rounded-xl border border-gray-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-md"
-//           >
-//             {/* Value */}
-//             <h2 className="geist text-2xl md:text-3xl lg:text-4xl font-bold text-[#224236] leading-none mb-3">
-//               {stat.value}
-//             </h2>
-
-//             {/* Label Text */}
-//             <p className="mt-1 text-[#64748B] text-[14.5px] md:text-[15px] lg:text-[16px] font-medium">
-//               {stat.label}
-//             </p>
-//           </div>
-//         ))}
-//       </div>
-
-//       {/* Bottom subtle divider */}
-//       <div className="mt-14 border-b border-gray-200 w-full"></div>
-//     </section>
-//   );
-// };
-
-// export default StatsSection;
-
 import React from "react";
 import { useLoaderData } from "react-router";
 
 const StatsSection = () => {
   const allFriends = useLoaderData();
 
-  // Dynamic calculations based on the loaded data
   const statsSummary = [
     {
       id: 1,
@@ -57,12 +21,12 @@ const StatsSection = () => {
     {
       id: 3,
       label: "Almost Due",
-      value: "6", // Fixed Value
+      value: "6", 
     },
     {
       id: 4,
       label: "Need Attention",
-      value: "12", // Fixed Value
+      value: "12",
     },
   ];
 

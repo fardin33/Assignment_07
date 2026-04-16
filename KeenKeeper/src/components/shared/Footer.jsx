@@ -56,6 +56,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="w-full border-t border-gray-500/50 pt-8 flex flex-col md:flex-row justify-between items-center text-[11px] uppercase tracking-wider text-gray-400 font-medium">
           <p>© 2026 KeenKeeper. All rights reserved.</p>
+          <p className="mt-2 text-[10px] text-[#1a3a32]">Fardin Hassan</p>
 
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-white transition-colors">

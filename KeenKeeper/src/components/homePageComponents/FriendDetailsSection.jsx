@@ -38,7 +38,7 @@ const FriendDetailsSection = ({ friends }) => {
       theme: "light",
     });
 
-    // Mapping Contract Icon :
+    // Mapping Contract Icons :
     const iconMap = {
       Text: <FaRegCommentDots className="text-emerald-600" />,
       Call: <FaPhoneAlt className="text-emerald-600" />,
