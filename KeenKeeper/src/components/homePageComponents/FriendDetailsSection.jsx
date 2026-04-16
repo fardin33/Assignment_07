@@ -13,7 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { TimeLineContext } from "../../context/TimeLineContext";
 
 const FriendDetailsSection = ({ friends }) => {
-  let { events, setEvents } = useContext(TimeLineContext);
+  const { events, setEvents } = useContext(TimeLineContext);
 
   const { id } = useParams();
   const friend = friends?.find((f) => f.id.toString() === id);
@@ -167,7 +167,7 @@ const FriendDetailsSection = ({ friends }) => {
                   <h3 className="text-md md:text-sm lg:text-lg font-bold text-emerald-800">
                     Relationship Goal
                   </h3>
-                  <button className="bg-slate-50 px-2 py-1 rounded text-slate-500 text-[9.5px] md:text-[11px] lg:text-[12px] font-bold uppercase border border-slate-200 hover:bg-black hover:text-white cursor-pointer">
+                  <button className="bg-slate-50 px-2 py-1 rounded text-gray-700 text-[9.5px] md:text-[11px] lg:text-[12px] font-bold uppercase border border-slate-200 hover:bg-black hover:text-white cursor-pointer">
                     Edit
                   </button>
                 </div>

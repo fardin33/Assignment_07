@@ -3,6 +3,6 @@ import StatsBodySection from "../../components/statsPageComponents/StatsBodySect
 
 const Stats = () => {
   return <StatsBodySection />;
-};
+}; 
 
 export default Stats;

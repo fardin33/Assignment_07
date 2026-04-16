@@ -6,3 +6,7 @@
   font-family: "Geist", sans-serif;
   font-optical-sizing: auto;
 }
+
+path.recharts-sector:focus {
+  outline: none !important;
+}
