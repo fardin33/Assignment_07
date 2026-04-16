@@ -29,7 +29,7 @@ const FriendDetailsSection = ({ friends }) => {
   // 2. Toast Handler Function :
   const handleCheckIn = (type) => {
     toast.success(`${type} with ${friend.name}`, {
-      position: "top-right",
+      position: "top-center",
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -74,7 +74,7 @@ const FriendDetailsSection = ({ friends }) => {
             {/* Left Column: Profile Card & Actions */}
             <div className="md:col-span-4 lg:col-span-3 space-y-3">
               <div className="bg-white p-5 md:p-4 lg:p-8 rounded-xl border border-gray-100 shadow-sm flex flex-col items-center text-center">
-                <div className="w-20 h-20 md:w-16 md:h-16 lg:w-24 lg:h-24 rounded-full overflow-hidden mb-3 border-4 border-white shadow-md">
+                <div className="w-20 h-20 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full overflow-hidden mb-3 border-4 border-white shadow-md">
                   <img
                     src={friend.picture}
                     alt={friend.name}
@@ -82,7 +82,7 @@ const FriendDetailsSection = ({ friends }) => {
                   />
                 </div>
 
-                <h3 className="geist text-[18px] md:text-[16px] lg:text-[22px] font-bold text-[#1F2937]">
+                <h3 className="geist text-[15px] md:text-[16px] lg:text-[18px] font-bold text-[#1F2937]">
                   {friend.name}
                 </h3>
                 <p className="text-[13px] md:text-[11px] lg:text-[15px] text-gray-500 mb-2">
@@ -93,7 +93,7 @@ const FriendDetailsSection = ({ friends }) => {
                   {friend.tags.map((tag, i) => (
                     <span
                       key={i}
-                      className="bg-[#D1FAE5] text-[#18644f] text-[10px] md:text-[9px] lg:text-[12px] font-bold px-2 py-1 rounded-full uppercase"
+                      className="bg-[#D1FAE5] text-[#18644f] text-[9px] md:text-[8px] lg:text-[12px] font-bold px-2 py-1 rounded-full uppercase"
                     >
                       {tag}
                     </span>
@@ -101,10 +101,17 @@ const FriendDetailsSection = ({ friends }) => {
                 </div>
 
                 <span
-                  className={`text-[10px] md:text-[9px] lg:text-[12px] font-bold px-3 py-1 rounded-full shadow-sm ${getStatusStyles(friend.status)}`}
+                  className={`text-[9px] md:text-[10px] lg:text-[11px] font-bold px-3 py-1 rounded-full shadow-sm ${getStatusStyles(friend.status)}`}
                 >
                   {friend.status}
                 </span>
+
+                <p className="mt-3 text-gray-500 text-[11.7px] md:text-[12px] lg:text-[13px] font-medium px-2 py-1 rounded-full">
+                  "{friend.bio}"
+                </p>
+                <p className=" text-gray-800 text-[11px] md:text-[11.5px] lg:text-[12px] font-medium px-2 py-1 rounded-full mb-1">
+                  Email : {friend.email}
+                </p>
               </div>
 
               {/* Action Buttons : */}
@@ -126,28 +133,29 @@ const FriendDetailsSection = ({ friends }) => {
             {/* Right Column: Stats & Goals */}
             <div className="md:col-span-8 lg:col-span-9 space-y-4 lg:y-6">
               {/* Stats Cards : */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-4">
-                <div className="bg-white p-4 md:p-3 lg:p-6 rounded-xl border border-slate-100 shadow-sm text-center">
-                  <p className="text-2xl md:text-xl lg:text-4xl font-bold text-slate-800">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-4 ">
+                <div className="bg-white p-4 md:p-3 lg:p-6 rounded-xl border border-slate-100 shadow-sm text-center flex flex-col justify-center items-center min-h-25 md:min-h-30">
+                  <p className="text-xl md:text-[22px] lg:text-[27px] font-bold text-slate-800 leading-tight">
                     {friend.days_since_contact || "N/A"}
                   </p>
-                  <p className="text-[10px] lg:text-sm text-slate-400 mt-1 uppercase font-medium">
+                  <p className="text-[11px] md:text-[11px] lg:text-[14px] text-slate-400 mt-1 uppercase font-medium">
                     Days Since Contact
                   </p>
                 </div>
-                <div className="bg-white p-4 md:p-3 lg:p-6 rounded-xl border border-slate-100 shadow-sm text-center">
-                  <p className="text-2xl md:text-xl lg:text-4xl font-bold text-slate-800">
+                <div className="bg-white p-4 md:p-3 lg:p-6 rounded-xl border border-slate-100 shadow-sm text-center flex flex-col justify-center items-center min-h-25 md:min-h-30">
+                  <p className="text-xl md:text-[22px] lg:text-[27px] font-bold text-slate-800 leading-tight">
                     {friend.goal || "N/A"}
                   </p>
-                  <p className="text-[10px] lg:text-sm text-slate-400 mt-1 uppercase font-medium">
+                  <p className="text-[11px] md:text-[11px] lg:text-[14px] text-slate-400 mt-1 uppercase font-medium">
                     Goal (Days)
                   </p>
                 </div>
-                <div className="bg-white p-4 md:p-3 lg:p-6 rounded-xl border border-slate-100 shadow-sm text-center">
-                  <p className="text-xl md:text-base lg:text-3xl font-bold text-emerald-900">
+
+                <div className="bg-white p-4 md:p-3 lg:p-6 rounded-xl border border-slate-100 shadow-sm text-center flex flex-col justify-center items-center min-h-25 md:min-h-30">
+                  <p className="text-xl md:text-[16px] lg:text-[25px] font-bold text-emerald-900 leading-tight">
                     {friend.next_due_date || "N/A"}
                   </p>
-                  <p className="text-[10px] lg:text-sm text-slate-400 mt-1 uppercase font-medium">
+                  <p className="text-[11px] md:text-[11px] lg:text-[14px] text-slate-400 mt-1 uppercase font-medium">
                     Next Due
                   </p>
                 </div>
@@ -159,7 +167,7 @@ const FriendDetailsSection = ({ friends }) => {
                   <h3 className="text-md md:text-sm lg:text-lg font-bold text-emerald-800">
                     Relationship Goal
                   </h3>
-                  <button className="bg-slate-50 px-2 py-1 rounded text-slate-500 text-[10px] font-bold uppercase border border-slate-200">
+                  <button className="bg-slate-50 px-2 py-1 rounded text-slate-500 text-[9.5px] md:text-[11px] lg:text-[12px] font-bold uppercase border border-slate-200 hover:bg-black hover:text-white cursor-pointer">
                     Edit
                   </button>
                 </div>
@@ -181,17 +189,17 @@ const FriendDetailsSection = ({ friends }) => {
                   {/* 4. Click handlers added below */}
                   <button
                     onClick={() => handleCheckIn("Text")}
-                    className="flex flex-col items-center py-4 md:py-3 lg:py-6 bg-slate-50 border border-slate-100 rounded-xl hover:bg-emerald-50 transition-all group"
+                    className="flex flex-col items-center py-4 md:py-3 lg:py-6 bg-slate-50 border border-slate-100 rounded-xl hover:bg-emerald-50 transition-all group cursor-pointer"
                   >
                     <FaRegCommentDots className="text-slate-600 group-hover:text-emerald-600 md:size-5 lg:size-6" />
-                    <span className="text-xs md:text-[11px] lg:text-sm font-semibold mt-2">
+                    <span className="text-xs md:text-[11px] lg:text-sm font-semibold mt-2 ">
                       Text
                     </span>
                   </button>
 
                   <button
                     onClick={() => handleCheckIn("Call")}
-                    className="flex flex-col items-center py-4 md:py-3 lg:py-6 bg-slate-50 border border-slate-100 rounded-xl hover:bg-emerald-50 transition-all group"
+                    className="flex flex-col items-center py-4 md:py-3 lg:py-6 bg-slate-50 border border-slate-100 rounded-xl hover:bg-emerald-50 transition-all group cursor-pointer"
                   >
                     <FaPhoneAlt className="text-slate-600 group-hover:text-emerald-600 md:size-4 lg:size-5" />
                     <span className="text-xs md:text-[11px] lg:text-sm font-semibold mt-2">
@@ -201,7 +209,7 @@ const FriendDetailsSection = ({ friends }) => {
 
                   <button
                     onClick={() => handleCheckIn("Video")}
-                    className="flex flex-col items-center py-4 md:py-3 lg:py-6 bg-slate-50 border border-slate-100 rounded-xl hover:bg-emerald-50 transition-all group"
+                    className="flex flex-col items-center py-4 md:py-3 lg:py-6 bg-slate-50 border border-slate-100 rounded-xl hover:bg-emerald-50 transition-all group cursor-pointer"
                   >
                     <FaVideo className="text-slate-600 group-hover:text-emerald-600 md:size-4 lg:size-5" />
                     <span className="text-xs md:text-[11px] lg:text-sm font-semibold mt-2">

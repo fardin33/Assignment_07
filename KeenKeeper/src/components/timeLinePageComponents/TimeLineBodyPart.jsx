@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import TimeLineCard from "../Ui/TimeLineCard";
 import { HiOutlineUserGroup, HiOutlineChatAlt2 } from "react-icons/hi";
 import { FaChevronDown } from "react-icons/fa6";
@@ -7,7 +7,13 @@ import { TimeLineContext } from "../../context/TimeLineContext";
 
 const TimeLineBodyPart = () => {
   const { events } = useContext(TimeLineContext);
-  console.log(events);
+
+  const [filter, setFilter] = useState("All");
+
+  const filteredEvents =
+    filter === "All"
+      ? events
+      : events.filter((event) => event.contactType === filter);
 
   return (
     <section className="w-[85%] mx-auto pt-3 md:pt-5 lg:pt-10 pb-10">
@@ -19,7 +25,7 @@ const TimeLineBodyPart = () => {
 
         {/* Dropdown Part */}
         <div className="relative inline-block w-full max-w-60 mb-7">
-          <div className="dropdown dropdown-end md:dropdown-right">
+          <div className="dropdown dropdown-right dropdown-end md:dropdown-right">
             {/* Button */}
             <div
               tabIndex={0}
@@ -28,7 +34,7 @@ const TimeLineBodyPart = () => {
             >
               <LuFilter className="text-sm md:text-base lg:text-xl" />
               <p className="text-xs md:text-sm lg:text-lg font-normal">
-                Filter timeline
+                {filter === "All" ? "Filter timeline" : `Showing: ${filter}`}
               </p>
               <FaChevronDown className="text-[10px] md:text-xs lg:text-sm" />
             </div>
@@ -36,67 +42,41 @@ const TimeLineBodyPart = () => {
             {/* Dropdown */}
             <ul
               tabIndex={0}
-              className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 md:w-4 lg:w-52 p-2 shadow-xl border border-gray-100"
+              className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 md:w-52 p-2 shadow-xl border border-gray-100"
             >
-              <li className="text-xs md:text-sm lg:text-base">
-                <a
-                  onClick={(e) => {
-                    e.preventDefault();
-                    console.log("Item 1 clicked");
-                  }}
-                >
-                  Item 1
-                </a>
+              <li>
+                <a onClick={() => setFilter("All")}>All</a>
               </li>
-              <li className="text-xs md:text-sm lg:text-base">
-                <a
-                  onClick={(e) => {
-                    e.preventDefault();
-                    console.log("Item 2 clicked");
-                  }}
-                >
-                  Item 2
-                </a>
+              <li>
+                <a onClick={() => setFilter("Text")}>Text</a>
               </li>
-              <li className="text-xs md:text-sm lg:text-base">
-                <a
-                  onClick={(e) => {
-                    e.preventDefault();
-                    console.log("Item 3 clicked");
-                  }}
-                >
-                  Item 3
-                </a>
+              <li>
+                <a onClick={() => setFilter("Call")}>Call</a>
               </li>
-              <li className="text-xs md:text-sm lg:text-base">
-                <a
-                  onClick={(e) => {
-                    e.preventDefault();
-                    console.log("Item 4 clicked");
-                  }}
-                >
-                  Item 4
-                </a>
-              </li>
-              <li className="text-xs md:text-sm lg:text-base">
-                <a
-                  onClick={(e) => {
-                    e.preventDefault();
-                    console.log("Item 5 clicked");
-                  }}
-                >
-                  Item 5
-                </a>
+              <li>
+                <a onClick={() => setFilter("Video")}>Video</a>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Timeline Cards Grid */}
-        <div className="grid grid-cols-1 gap-4 md:gap-6">
+        {/* <div className="grid grid-cols-1 gap-4 md:gap-6">
           {events.map((event) => {
             return <TimeLineCard key={event.id} event={event} />;
           })}
+        </div> */}
+        <div className="grid grid-cols-1 gap-4 md:gap-6">
+          {filteredEvents.length > 0 ? (
+            filteredEvents.map((event, index) => (
+              <TimeLineCard key={index} event={event} />
+            ))
+          ) : (
+            // যদি ওই ক্যাটাগরিতে কোনো ডাটা না থাকে
+            <div className="text-center py-20 bg-gray-50 rounded-xl border-2 border-dashed border-gray-200">
+              <p className="text-gray-400">Timeline Data Not Found !!</p>
+            </div>
+          )}
         </div>
       </div>
     </section>
