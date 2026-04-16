@@ -22,7 +22,6 @@ const StatsBodySection = () => {
     { name: "Video", value: videoCount, color: "#34A853" },
   ];
 
-  // Jodi kono data-i na thake, tobe chart empty dekhabe
   const totalEvents = events.length;
 
   return (
@@ -41,9 +40,9 @@ const StatsBodySection = () => {
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Tooltip
-                  formatter={(value) => [
-                    `${value} (${((value / totalEvents) * 100).toFixed(1)}%)`,
-                    "Interactions",
+                  formatter={(value, name) => [
+                    `${((value / totalEvents) * 100).toFixed(1)}%`,
+                    name,
                   ]}
                   contentStyle={{
                     borderRadius: "10px",
@@ -88,7 +87,7 @@ const StatsBodySection = () => {
                   style={{ backgroundColor: entry.color }}
                 ></div>
                 <span className="text-[12px] md:text-[13px] lg:text-[15px] font-medium text-gray-500">
-                  {entry.name} : {entry.value} %
+                  {entry.name} : {entry.value}
                 </span>
               </div>
             </div>
