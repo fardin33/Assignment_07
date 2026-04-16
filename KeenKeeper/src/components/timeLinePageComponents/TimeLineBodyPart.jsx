@@ -61,18 +61,13 @@ const TimeLineBodyPart = () => {
         </div>
 
         {/* Timeline Cards Grid */}
-        {/* <div className="grid grid-cols-1 gap-4 md:gap-6">
-          {events.map((event) => {
-            return <TimeLineCard key={event.id} event={event} />;
-          })}
-        </div> */}
+
         <div className="grid grid-cols-1 gap-4 md:gap-6">
           {filteredEvents.length > 0 ? (
             filteredEvents.map((event, index) => (
               <TimeLineCard key={index} event={event} />
             ))
           ) : (
-            // যদি ওই ক্যাটাগরিতে কোনো ডাটা না থাকে
             <div className="text-center py-20 bg-gray-50 rounded-xl border-2 border-dashed border-gray-200">
               <p className="text-gray-400">Timeline Data Not Found !!</p>
             </div>
